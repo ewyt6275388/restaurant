@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="card">
+        <h1>เลือกเมนูอาหาร</h1>
+
+        <form method="POST">
+            <select name="food">
+                <option value="ข้าวผัด">ข้าวผัด</option>
+                <option value="ก๋วยเตี๋ยว">ก๋วยเตี๋ยว</option>
+                <option value="ส้มตำ">ส้มตำ</option>
+                <option value="แฮมเบอร์เกอร์">แฮมเบอร์เกอร์</option>
+            </select>
+
+            <button type="submit">ยืนยัน</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                {{ result }}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
