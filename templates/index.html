@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe Modern</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>☕ Modern Cafe</h1>
+    <p>เลือกเมนูที่คุณต้องการ</p>
+</header>
+
+<div class="menu-container">
+    <form method="post">
+        <div class="menu-card">
+            <h2>🧋 เครื่องดื่ม</h2>
+            <p>ชาไทยสูตรพิเศษ หอม เข้ม</p>
+            <button name="menu" value="drink">เลือกเมนูนี้</button>
+        </div>
+
+        <div class="menu-card">
+            <h2>🍰 ของหวาน</h2>
+            <p>เค้กช็อกโกแลต นุ่มละมุน</p>
+            <button name="menu" value="dessert">เลือกเมนูนี้</button>
+        </div>
+    </form>
+</div>
+
+{% if result %}
+<div class="result-box">
+    <h2>{{ result }}</h2>
+</div>
+{% endif %}
+
+</body>
+</html>
