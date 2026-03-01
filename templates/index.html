@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>🍽️ เลือกเมนู</h1>
+
+    <form method="post">
+
+        <h2>🧋 เครื่องดื่ม</h2>
+        {% for d in drinks %}
+            <button name="item" value="{{ d }}" type="submit" onclick="setCategory('drink')">
+                {{ d }}
+            </button>
+        {% endfor %}
+
+        <h2>🍰 ของหวาน</h2>
+        {% for ds in desserts %}
+            <button name="item" value="{{ ds }}" type="submit" onclick="setCategory('dessert')">
+                {{ ds }}
+            </button>
+        {% endfor %}
+
+        <input type="hidden" name="category" id="categoryInput">
+
+    </form>
+
+    {% if result %}
+        <div class="result">
+            {{ result }}
+        </div>
+    {% endif %}
+</div>
+
+<script>
+function setCategory(type){
+    document.getElementById("categoryInput").value = type;
+}
+</script>
+
+</body>
+</html>
